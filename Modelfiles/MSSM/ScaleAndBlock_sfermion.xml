@@ -1,0 +1,85 @@
+<!--  
+ This model file was automatically created by SARAH version4.13.0  
+ SARAH References: arXiv:0806.0538, 0909.2863, 1002.0840, 1207.0906, 1309.7223 
+ (c) Florian Staub, 2013   
+ 
+ File created at 10:49 on 8.10.2018  
+ 
+                                      -->
+ 
+ 
+<LhaBlockParameterManagerInitializationFile> 
+<ParameterManagerDetails 
+ParameterManagerName="SARAHManager" 
+VevaciousMajorVersion="2" VevaciousMinorVersion="0" /> 
+
+<RenormalizationScaleChoices> 
+	<FixedScaleChoice>
+	  <EvaluationType>
+		BlockLowestScale
+	  </EvaluationType>
+		  <EvaluationArgument>
+			GAUGE
+		  </EvaluationArgument>
+		</FixedScaleChoice>
+		<MaximumScaleBound>
+		  <EvaluationType>
+			FixedNumber
+		  </EvaluationType>
+		  <EvaluationArgument>
+			1.0E+016 <!-- Roughly the GUT scale. -->
+		  </EvaluationArgument>
+		</MaximumScaleBound>
+	</RenormalizationScaleChoices>
+<ValidBlocks>
+HMIX
+None
+GAUGE
+HMIX
+TREEHMIX
+LOOPHMIX
+MSD2
+MSE2
+MSL2
+MSOFT
+TREEMSOFT
+LOOPMSOFT
+MSQ2
+MSU2
+NMIX
+None
+PSEUDOSCALARMIX
+SCALARMIX
+SMINPUTS
+TD
+TE
+TU
+YD
+YE
+YU
+</ValidBlocks>
+
+<DerivedParameters> 
+mHd2=MSOFT[21] 
+mHd2SarahTree=TREEMSOFT[21] 
+mHd2Tree=IFNONZERO[mHd2SarahTree,mHd2] 
+mHd2SarahLoop=LOOPMSOFT[21] 
+mHd2Loop=IFNONZERO[mHd2SarahLoop,mHd2] 
+mHu2=MSOFT[22] 
+mHu2SarahTree=TREEMSOFT[22] 
+mHu2Tree=IFNONZERO[mHu2SarahTree,mHu2] 
+mHu2SarahLoop=LOOPMSOFT[22] 
+mHu2Loop=IFNONZERO[mHu2SarahLoop,mHu2] 
+Mu=HMIX[1] 
+MuSarahTree=TREEHMIX[1] 
+MuTree=IFNONZERO[MuSarahTree,Mu] 
+MuSarahLoop=LOOPHMIX[1] 
+MuLoop=IFNONZERO[MuSarahLoop,Mu] 
+Bmu=HMIX[101] 
+BmuSarahTree=TREEHMIX[101] 
+BmuTree=IFNONZERO[BmuSarahTree,Bmu] 
+BmuSarahLoop=LOOPHMIX[101] 
+BmuLoop=IFNONZERO[BmuSarahLoop,Bmu] 
+</DerivedParameters> 
+
+</LhaBlockParameterManagerInitializationFile> 
