@@ -81,6 +81,17 @@ These are the setups relevant to the program VPPparamScanner itself
 	<name>lhacalced</name>
 	<term>const1*ParamName</term>
     </lhacalc>
+<!-- You can also define conditions for inputs and for lha -->
+<condition>
+    <inputcondition>
+	    dummy*calculatedparam>=0
+    </inputcondition>
+</condition>
+<condition>
+    <lhacondition>
+	    lhacalced >= 0
+    </lhacondition>
+</condition>
 <!-- Finally you can define options -->
     <options>
 	<!-- skipSPh : Will skip the SLHA file generation. You can do this if you already got SLHA files in your "RunpointInput" and only need the V++ running and parsing. -->
