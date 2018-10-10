@@ -1,0 +1,14 @@
+<VevaciousPlusPlusObjectInitialization>
+  <PotentialFunctionInitializationFile>
+    pathtohere/InitializationFiles/DefaultObjectInitializationFiles/PotentialFunctionInitialization_sfermion.xml
+  </PotentialFunctionInitializationFile>
+   
+  <PotentialMinimizerInitializationFile>
+    pathtohere/MSSM/InitializationFiles/DefaultObjectInitializationFiles/PotentialMinimizerInitialization_PHC.xml
+  </PotentialMinimizerInitializationFile>
+   
+  <TunnelingCalculatorInitializationFile>
+    pathtohere/MSSM/InitializationFiles/DefaultObjectInitializationFiles/TunnelingCalculatorInitialization.xml
+  </TunnelingCalculatorInitializationFile>
+</VevaciousPlusPlusObjectInitialization>
+
