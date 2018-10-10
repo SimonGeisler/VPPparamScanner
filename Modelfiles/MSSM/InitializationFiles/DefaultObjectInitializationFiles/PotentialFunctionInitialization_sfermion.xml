@@ -1,0 +1,34 @@
+<VevaciousPlusPlusPotentialFunctionInitialization>
+
+ 
+  <LagrangianParameterManagerClass>
+
+    <ClassType>
+      SARAHManager
+    </ClassType>
+    <ConstructorArguments>
+      <ScaleAndBlockFile>
+pathtohere/MSSM/ScaleAndBlock_sfermion.xml
+      </ScaleAndBlockFile>
+    </ConstructorArguments>
+  </LagrangianParameterManagerClass>
+ 
+  <PotentialFunctionClass>
+    <!-- Either "FixedScaleOneLoopPotential" or
+         "RgeImprovedOneLoopPotential" -->
+    <ClassType>
+      FixedScaleOneLoopPotential
+    </ClassType>
+    <ConstructorArguments>
+      <ModelFile>
+pathtoVPPparamScanner/MSSM/MSSM_sfermion.vin
+      </ModelFile>
+      <AssumedPositiveOrNegativeTolerance>
+        0.5
+      </AssumedPositiveOrNegativeTolerance>
+    </ConstructorArguments>
+  </PotentialFunctionClass>
+
+
+</VevaciousPlusPlusPotentialFunctionInitialization>
+
