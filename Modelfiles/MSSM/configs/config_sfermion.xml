@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VevaciousPlusPlusMainInput>
+<!--     
+This is the standard XML input of VevaciousPlusPlus:
++You need to provide the directory to the Initializationfile, it should work with the given one for the setup here.
++You need to provide the directory to your SPheno Outputs in "RunpointInput"
++You need to provide the directory to the VevaciousPlusPlus Outputs in "OutputFilename". As VevaciousPlusPlus doesn't work if they are in the same folder, please make a seperate one for this
+
+Also note that this program will edit the RunpointInput and OutputFilename tag for the V++ input, so dont worry if there's a filename in there, just ignore it. As long as the directories are right everything will work.
+-->
+    <InitializationFile>./Modelfiles/MSSM/InitializationFiles/VevaciousPlusPlusDefaultObjectInitialization_sfermion.xml</InitializationFile>
+    <SingleParameterPoint>
+        <RunPointInput>./MSSM/SPHOutput/</RunPointInput>
+        <OutputFilename>./MSSM/OutputsVpp/</OutputFilename>
+    </SingleParameterPoint>
+</VevaciousPlusPlusMainInput>
+<SPheno>
+<!--
+This is the setup for SPheno, just provide the directory to the SPheno executable and the LesHouches.in file
+-->
+    <executable>~/home/simg/SPheno-4.0.3/bin/SPhenoMSSM</executable>
+    <inputfile>./MSSM/LesHouches.in.MSSM</inputfile>
+</SPheno>
+<programspecific>
+<!-- 
+These are the setups relevant to the program VPPparamScanner itself
+-->
+
+<!-- Results is just the folder where the results of the parsing is placed -->
+    <Results>./MSSM/</Results>
+<!-- delimiter is just for cosmetic reasons, just leave it as "_" -->
+    <delimiter>_</delimiter>
+<!-- If possible, always put Loop at "1", this is needed for V++ since it calculates the 1-loop effective potential and needs the masses at 1-loop level -->
+    <Loop>1</Loop>
+<!-- The directory to your V++ executable -->
+    <VevaciousPlusPlusExec>~/Masterarbeit/Vevacious_b2_phc_libs/VevaciousPlusPlus_work/bin/VevaciousPlusPlus.exe</VevaciousPlusPlusExec>
+<!-- This is the inputparameter configuration with all the MINPAR (OR IF WANTED ONE CAN DEFINE ANOTHER BLOCK) parameters which should have a value -->
+
+<!-- An inputparameter can either have a setup like the following, where you define discrete values: -->
+<inputparameter>
+        <name>m0</name>
+        <block>1</block>
+        <values>1.16500000E+03, 1.337E+04</values>
+    </inputparameter>
+<!-- Or an inputparameter can have values in a range with a given stepsize AND If wanted also discrete values additionally -->
+    <inputparameter>
+        <name>m12</name>
+        <block>2</block>
+	<beginval>1.0E+03</endval>
+	<endval>2.0E+03</endval>
+	<stepsize>10</stepsize>
+        <values>1.11000000E+03</values>
+    </inputparameter>
+<!-- If an inputparameter has no block given, it will not be editted in the MINPAR (you can equivalently set block to -1) -->
+    <inputparameter>
+	<name>dummy</name>
+	<beginval>1.0E+03</endval>
+	<endval>2.0E+03</endval>
+	<stepsize>10</stepsize>
+    </inputparameter>
+<!-- An inputparameter can also be calculated from other values. There can be another blockname and you can also edit matrixelements with multiple blocknumbers given -->
+    <inputparametercalc>
+	<name>calculatedparam</name>
+	<block>12,32</block>
+	<term>m0-0.5(m12*m0^4)^2*dummy</term>
+	<blockname>NameOfOtherBlockThanMINPAR</blockname>
+    </inputparametercalc>
+<!-- You can also define constants which are comfortable if calculating parameters by term -->
+    <constant>
+	<name>const1></name>
+	<value>1.1</value>
+    </constant>
+<!-- You can define "lhablock"s which relate to the SLHA outputs from SPheno. This parameter will be printed in the Results tables too -->
+    <lhablock>
+        <name>ParamName</name>
+        <blockname>MASS</blockname>
+        <block>21</block>
+    </lhablock>
+<!-- You can also define "lhacalc" parameters which are calculated after the LHA files are available.-->
+    <lhacalc>
+	<name>lhacalced</name>
+	<term>const1*ParamName</term>
+    </lhacalc>
+<!-- Finally you can define options -->
+    <options>
+	<!-- skipSPh : Will skip the SLHA file generation. You can do this if you already got SLHA files in your "RunpointInput" and only need the V++ running and parsing. -->
+	<!-- dirname=NAME\n : this will help you find your results output folder. If not given the folder will be named after the date and time when the program finished. -->
+	<!-- skipVpp : If you only want to generate SLHA files -->
+	<!-- skipResults : If you don't want to parse the V++ outputs -->
+    </options>
+</programspecific>
