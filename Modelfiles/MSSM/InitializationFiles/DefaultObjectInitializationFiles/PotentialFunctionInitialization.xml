@@ -1,0 +1,33 @@
+<VevaciousPlusPlusPotentialFunctionInitialization>
+
+ 
+  <LagrangianParameterManagerClass>
+
+    <ClassType>
+      SARAHManager
+    </ClassType>
+    <ConstructorArguments>
+      <ScaleAndBlockFile>
+/home/simg/Masterarbeit/SPHVar_Vpp_Results/MSSM/ScaleAndBlock.xml
+      </ScaleAndBlockFile>
+    </ConstructorArguments>
+  </LagrangianParameterManagerClass>
+ 
+  <PotentialFunctionClass>
+    <!-- Either "FixedScaleOneLoopPotential" or
+         "RgeImprovedOneLoopPotential" -->
+    <ClassType>
+      FixedScaleOneLoopPotential
+    </ClassType>
+    <ConstructorArguments>
+      <ModelFile>
+/home/simg/Masterarbeit/SPHVar_Vpp_Results/MSSM/MSSM_stopstau.vin
+      </ModelFile>
+      <AssumedPositiveOrNegativeTolerance>
+        0.5
+      </AssumedPositiveOrNegativeTolerance>
+    </ConstructorArguments>
+  </PotentialFunctionClass>
+
+
+</VevaciousPlusPlusPotentialFunctionInitialization>
