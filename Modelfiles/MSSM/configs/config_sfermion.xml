@@ -10,8 +10,8 @@ Also note that this program will edit the RunpointInput and OutputFilename tag f
 -->
     <InitializationFile>./Modelfiles/MSSM/InitializationFiles/VevaciousPlusPlusDefaultObjectInitialization_sfermion.xml</InitializationFile>
     <SingleParameterPoint>
-        <RunPointInput>./MSSM/SPHOutput/</RunPointInput>
-        <OutputFilename>./MSSM/OutputsVpp/</OutputFilename>
+        <RunPointInput>./Modelfiles/MSSM/SPHOutput/</RunPointInput>
+        <OutputFilename>./Modelfiles/MSSM/VPPOutputs/</OutputFilename>
     </SingleParameterPoint>
 </VevaciousPlusPlusMainInput>
 <SPheno>
@@ -19,7 +19,7 @@ Also note that this program will edit the RunpointInput and OutputFilename tag f
 This is the setup for SPheno, just provide the directory to the SPheno executable and the LesHouches.in file
 -->
     <executable>~/home/simg/SPheno-4.0.3/bin/SPhenoMSSM</executable>
-    <inputfile>./MSSM/LesHouches.in.MSSM</inputfile>
+    <inputfile>./Modelfiles/MSSM/LesHouches.in.MSSM</inputfile>
 </SPheno>
 <programspecific>
 <!-- 
